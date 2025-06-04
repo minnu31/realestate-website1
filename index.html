@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajabhoomi - Ch. Ashok Kumar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1: Welcome -->
+  <div id="page1" class="page active">
+    <h1>Welcome to Rajabhoomi</h1>
+    <h2>Presented by Ch. Ashok Kumar</h2>
+    <button onclick="nextPage(2)">Next</button>
+  </div>
+
+  <!-- Page 2: Locations -->
+  <div id="page2" class="page">
+    <h2>Available Locations</h2>
+    <button onclick="showDetails('shankarpally')">Shankarpally</button>
+    <button onclick="showDetails('dummy')">Other Location</button>
+  </div>
+
+  <!-- Page 3: Property Details -->
+  <div id="page3" class="page">
+    <h2 id="locationTitle"></h2>
+    <img id="propertyImage" src="" alt="Property Image"/>
+    <p id="propertyInfo"></p>
+    <button onclick="nextPage(4)">Next</button>
+  </div>
+
+  <!-- Page 4: Contact -->
+  <div id="page4" class="page">
+    <h2>Thank You for Your Interest!</h2>
+    <p>For more details, contact:</p>
+    <h3>Ch. Ashok Kumar</h3>
+    <p>📞 +91-XXXXXXXXXX</p>
+    <p>We look forward to helping you find the perfect plot!</p>
+  </div>
+
+  <script>
+    function nextPage(pageNum) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + pageNum).classList.add('active');
+    }
+
+    function showDetails(location) {
+      let title = document.getElementById('locationTitle');
+      let img = document.getElementById('propertyImage');
+      let info = document.getElementById('propertyInfo');
+
+      if (location === 'shankarpally') {
+        title.textContent = "Shankarpally - Villa Plots";
+        img.src = "https://via.placeholder.com/300x200?text=Shankarpally+Land"; // replace with your image later
+        info.innerHTML = `
+          📍 Location: Mehtabkhanguda X Roads<br>
+          🏘️ Villa plots with clubhouse<br>
+          🏦 Bank Loan Available up to 80%<br>
+          💸 Contact for price details
+        `;
+      } else {
+        title.textContent = "Second Location";
+        img.src = "https://via.placeholder.com/300x200?text=Another+Plot";
+        info.innerHTML = `
+          📍 Location: [Enter location]<br>
+          🏘️ [Plot details here]<br>
+          🏦 [Loan info here]<br>
+          💸 [Price info here]
+        `;
+      }
+
+      nextPage(3);
+    }
+  </script>
+
+</body>
+</html>
