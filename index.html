@@ -5,100 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rajabhoomi - Ch. Ashok Kumar</title>
   <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
-      background: #e9f0f7;
-      color: #333;
-      display: flex;
-      flex-direction: column;
       min-height: 100vh;
-      align-items: center;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      display: flex;
       justify-content: center;
+      align-items: center;
       padding: 20px;
+      color: #333;
     }
+
     .container {
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      max-width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      max-width: 480px;
       width: 100%;
-      padding: 30px 40px;
+      padding: 30px 35px;
       text-align: center;
       transition: all 0.3s ease;
     }
+
     h1, h2, h3 {
-      margin: 0 0 15px;
+      margin-bottom: 15px;
       color: #2c3e50;
     }
+
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.6rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.4px;
+      color: #16a085;
     }
+
     h2 {
       font-weight: 600;
       color: #34495e;
     }
+
     h3 {
       color: #27ae60;
-      margin-top: 10px;
+      margin: 15px 0 10px;
     }
+
     p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 10px 0 20px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 10px 0 25px;
       color: #555;
     }
+
     button {
-      background: #2980b9;
-      color: white;
+      background: #16a085;
       border: none;
-      border-radius: 25px;
-      padding: 12px 30px;
-      font-size: 1rem;
-      cursor: pointer;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px 35px;
       margin: 15px 10px 0;
-      box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 8px 15px rgba(22, 160, 133, 0.4);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      font-weight: 600;
     }
+
     button:hover {
+      background: #138d75;
+      box-shadow: 0 12px 20px rgba(19, 141, 117, 0.6);
+    }
+
+    button.secondary {
+      background: #2980b9;
+      box-shadow: 0 8px 15px rgba(41, 128, 185, 0.4);
+    }
+
+    button.secondary:hover {
       background: #1c5980;
-      box-shadow: 0 8px 20px rgba(28, 89, 128, 0.5);
+      box-shadow: 0 12px 20px rgba(28, 89, 128, 0.6);
     }
+
     img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       margin: 20px 0;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
+
     img:hover {
       transform: scale(1.05);
     }
+
     .page {
       display: none;
     }
+
     .active {
       display: block;
     }
+
     .contact-phone {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #e67e22;
-      margin: 10px 0;
+      margin: 15px 0;
       user-select: text;
     }
+
     footer {
       margin-top: 30px;
       font-size: 0.9rem;
-      color: #999;
+      color: #888;
+      font-style: italic;
     }
   </style>
 </head>
@@ -108,9 +132,9 @@
 
     <!-- Page 1: Welcome -->
     <div id="page1" class="page active">
-      <h1>Welcome to Rajabhoomi</h1>
+      <h1>Rajabhoomi</h1>
       <h2>Presented by Ch. Ashok Kumar</h2>
-      <button onclick="nextPage(2)">Next</button>
+      <button onclick="nextPage(2)">Explore Locations</button>
     </div>
 
     <!-- Page 2: Locations -->
@@ -119,16 +143,16 @@
       <button onclick="showDetails('shankarpally')">Shankarpally</button>
       <button onclick="showDetails('dummy')">Other Location</button>
       <br />
-      <button onclick="nextPage(1)" style="background:#95a5a6; margin-top: 25px;">Back</button>
+      <button onclick="nextPage(1)" class="secondary" style="margin-top: 30px;">Back to Welcome</button>
     </div>
 
     <!-- Page 3: Property Details -->
     <div id="page3" class="page">
       <h2 id="locationTitle"></h2>
-      <img id="propertyImage" src="" alt="Property Image"/>
+      <img id="propertyImage" src="" alt="Property Image" />
       <p id="propertyInfo"></p>
-      <button onclick="nextPage(4)">Next</button>
-      <button onclick="nextPage(2)" style="background:#95a5a6; margin-left: 10px;">Back</button>
+      <button onclick="nextPage(4)">Contact Now</button>
+      <button onclick="nextPage(2)" class="secondary" style="margin-left: 15px;">Back to Locations</button>
     </div>
 
     <!-- Page 4: Contact -->
@@ -138,13 +162,13 @@
       <h3>Ch. Ashok Kumar</h3>
       <p class="contact-phone">📞 +91-XXXXXXXXXX</p>
       <p>We look forward to helping you find the perfect plot!</p>
-      <button onclick="nextPage(1)" style="background:#95a5a6; margin-top: 25px;">Back to Home</button>
+      <button onclick="nextPage(1)" class="secondary" style="margin-top: 30px;">Back to Start</button>
     </div>
 
   </div>
 
   <footer>
-    &copy; 2025 Rajabhoomi. All Rights Reserved.
+    &copy; 2025 Rajabhoomi. All rights reserved.
   </footer>
 
   <script>
@@ -155,13 +179,13 @@
     }
 
     function showDetails(location) {
-      let title = document.getElementById('locationTitle');
-      let img = document.getElementById('propertyImage');
-      let info = document.getElementById('propertyInfo');
+      const title = document.getElementById('locationTitle');
+      const img = document.getElementById('propertyImage');
+      const info = document.getElementById('propertyInfo');
 
       if (location === 'shankarpally') {
         title.textContent = "Shankarpally - Villa Plots";
-        img.src = "https://via.placeholder.com/400x250?text=Shankarpally+Land"; // replace with your real image URL
+        img.src = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80";
         info.innerHTML = `
           📍 Location: Mehtabkhanguda X Roads<br>
           🏘️ Villa plots with clubhouse<br>
@@ -169,8 +193,8 @@
           💸 Contact for price details
         `;
       } else {
-        title.textContent = "Second Location";
-        img.src = "https://via.placeholder.com/400x250?text=Another+Plot";
+        title.textContent = "Other Location";
+        img.src = "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80";
         info.innerHTML = `
           📍 Location: [Enter location]<br>
           🏘️ [Plot details here]<br>
